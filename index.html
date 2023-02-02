@@ -1,0 +1,36 @@
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      [dg-cloak] {
+        display: none !important;
+      }
+    </style>
+    <!-- cloak style -->
+    <script
+      type="module"
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js"
+      defer
+    ></script>
+    <!-- dagger.js script -->
+    <script type="dagger/configs">
+      {
+        "_": "./js/script.js",
+        "comment": "./comment.html",
+        "view_module": "./view_module.html"
+      }
+    </script>
+    <!-- dagger configs -->
+    <title>dagger demo page</title>
+  </head>
+  <body>
+    hello world
+    <div dg-cloak +loading="{rootNode: [{content:'asdf', children:[{content:'0000', children:[]}]},{content:'1234',children:[]},{content:'zxcv',children:[]}]}">
+      <view_module +loading="{ message: 'Hello dagger!' }"></view_module>
+      <comment $each="rootNode"></comment>
+    </div>
+  </body>
+</html>

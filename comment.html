@@ -1,0 +1,18 @@
+<fieldset dg-cloak +loading="{reply: ''}">
+  <legend>${$scope.item.id || 'id goes here'}</legend>
+  <div $html="$scope.html"></div>
+  <span>${ $scope.item.content || '' }</span>
+  <br />
+  <textarea
+    $value#input="reply"
+    placeholder="write reply here"
+    rows="4"
+    cols="50"
+  ></textarea>
+  <br />
+  <button +click="$scope.children.push($scope.reply)">submit</button>
+  <br />
+  <div
+    $html="$scope.item.children.length?`<comment $each='$scope.item.children'></comment>`:''"
+  ></div>
+</fieldset>
