@@ -19,8 +19,7 @@
     <script type="dagger/configs">
       {
         "_": "./js/script.js",
-        "comment": "./comment.html",
-        "view_module": "./view_module.html"
+        "comment": "./comment.html"
       }
     </script>
     <!-- dagger configs -->
@@ -28,8 +27,7 @@
   </head>
   <body>
     hello world
-    <div dg-cloak +loading="{rootNode: [{content:'asdf', children:[{content:'0000', children:[]}]},{content:'1234',children:[]},{content:'zxcv',children:[]}]}">
-      <view_module +loading="{ message: 'Hello dagger!' }"></view_module>
+    <div dg-cloak +loading="loading()">
       <comment $each="rootNode"></comment>
     </div>
   </body>
