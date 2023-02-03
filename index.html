@@ -28,7 +28,15 @@
   <body>
     hello world
     <div dg-cloak +loading="loading()">
-      <comment $each="rootNode"></comment>
+      <textarea
+        $value#input="reply"
+        placeholder="write reply here"
+        rows="4"
+        cols="50"
+      ></textarea>
+      <br />
+      <button +click="">submit</button>
+      <comment $each="rootArray"></comment>
     </div>
   </body>
 </html>

@@ -1,19 +1,7 @@
-import { generateComments } from "../data/dataGen.js";
+import { data } from "../data/dataGen.js";
 
 const randomInt = Math.floor(Math.random() * 25) + 5;
-const arrayData = generateComments(randomInt);
-
-// data.forEach((el) => {
-//   // Handle the root element
-//   if (el.parentId === 0) {
-//     root = el;
-//     return;
-//   }
-//   // Use our mapping to locate the parent element in our data array
-//   const parentEl = data[idMapping[el.parentId]];
-//   // Add our current el to its parent's `children` array
-//   parentEl.children = [...(parentEl.children || []), el];
-// });
+const arrayData = data;
 
 export const transformArrayToTree = (arr) => {
   //idMapping outputs the mapping of elements to the position of their parent
@@ -35,6 +23,18 @@ export const transformArrayToTree = (arr) => {
 
 const commentTree = transformArrayToTree(arrayData);
 
-export const loading = () => ({
-  rootNode: commentTree,
-});
+export const loading = () => {
+  console.log(commentTree);
+  return {
+    rootArray: commentTree,
+    reply: "",
+  };
+};
+let index = 55
+
+
+export const handleReply = (reply, parentId, id=index++) => ({
+  id,
+  content: reply,
+  parentId
+})
