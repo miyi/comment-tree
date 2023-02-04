@@ -15,11 +15,26 @@
       src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js"
       defer
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- dagger.js script -->
     <script type="dagger/configs">
       {
         "_": "./js/script.js",
-        "comment": "./comment.html"
+        "comment": "./comment.html",
+        "style": {
+          "uri": "./css/style.css",
+          "scoped": false
+        }
       }
     </script>
     <!-- dagger configs -->
@@ -28,6 +43,8 @@
   <body>
     hello world
     <div dg-cloak +loading="loading()">
+      ${reply}
+      <br />
       <textarea
         $value#input="reply"
         placeholder="write reply here"
@@ -35,8 +52,8 @@
         cols="50"
       ></textarea>
       <br />
-      <button +click="">submit</button>
-      <comment $each="rootArray"></comment>
+      <button +click="handleReply($scope)">submit</button>
+      <comment $each="item.children"></comment>
     </div>
   </body>
 </html>

@@ -1,6 +1,6 @@
-<fieldset dg-cloak +loading="{reply: ''}">
-  <legend>${$scope.item.id || 'id goes here'}</legend>
-  <div $html="$scope.html"></div>
+<div class="comment" dg-cloak +loading="{reply: ''}">
+  <div>${$scope.item.id || 'id goes here'}</div>
+  <br />
   <span>${ $scope.item.content || '' }</span>
   <br />
   <textarea
@@ -10,9 +10,14 @@
     cols="50"
   ></textarea>
   <br />
-  <button +click="$scope.children.push($scope.reply)">submit</button>
+  <!-- <button
+    +click="$scope.item.children.push(handleReply($scope, $scope.item.id))"
+  >
+    submit
+  </button> -->
+  <button +click="handleReply($scope)">submit</button>
   <br />
   <div
-    $html="$scope.item.children.length?`<comment $each='$scope.item.children'></comment>`:''"
+    $html="$scope.item.children?`<comment $each='$scope.item.children'></comment>`:''"
   ></div>
-</fieldset>
+</div>
