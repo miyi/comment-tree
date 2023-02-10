@@ -1,0 +1,18 @@
+<div class="comment" dg-cloak +loading="{reply: ''}">
+  <div>${$scope.item.id || 'id goes here'}</div>
+  <br />
+  <span>${ $scope.item.content || '' }</span>
+  <br />
+  <textarea
+    $value#input="reply"
+    placeholder="write reply here"
+    rows="4"
+    cols="50"
+  ></textarea>
+  <br />
+  <button +click="handleReply($scope)">submit</button>
+  <br />
+  <template
+    $html="$scope.item.children?`<comment $each='$scope.item.children'></comment>`:''"
+  ></template>
+</div>
