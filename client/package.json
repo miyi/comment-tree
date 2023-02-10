@@ -5,8 +5,6 @@
   "main": "index.html",
   "type": "module",
   "dependencies": {
-    "lorem-ipsum": "^2.0.8",
-    "save-dev": "^0.0.1-security",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
